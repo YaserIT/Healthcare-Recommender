@@ -1,0 +1,111 @@
+Diagnosis of Chronic Diseases Based on Patients’ Health Records in IoT Healthcare Using a Recommender System
+Description
+This project presents a MATLAB-based implementation of a medical decision-support framework designed for the diagnosis and treatment recommendation of chronic diseases using electronic health records collected within Internet of Things (IoT) healthcare environments. The proposed system integrates similarity-driven learning and collaborative recommendation mechanisms to assist clinical interpretation of patient data. The model operates in two sequential stages: disease identification through instance-based classification and treatment recommendation through collaborative filtering. The implementation emphasizes data-driven inference, enabling the discovery of latent relationships among patient records without reliance on manually defined diagnostic rules.
+Code Authors
+Yahya Dorostkar Navaei
+Yaser Ahangari Nanehkaran
+DOI: 10.1155/2022/5663001
+Dataset Information
+The computational workflow assumes the presence of a MATLAB dataset file named Dataset.mat, which contains the variables required for simulation. The structure of the dataset corresponds to electronic patient health records obtained from publicly available biomedical repositories. The dataset includes patient attributes, diagnostic labels, and rating-like representations used within the recommender component of the system.
+The methodological foundation of the study is aligned with datasets curated in external repositories commonly used in biomedical signal processing and clinical data analysis.
+Third-Party Dataset Source
+PhysioNet Data Repository
+https://physionet.org/
+PhysioNet provides open-access physiological and clinical datasets widely adopted for reproducible research in computational medicine. Users replicating this work should ensure that the dataset organization matches the variable structure expected by the MATLAB scripts (e.g., matrices representing patient features, class labels, and record similarities).
+
+Code Information
+The MATLAB implementation encapsulates the following functional components:
+•	Loading and preprocessing of patient records
+•	Similarity computation using Euclidean distance measures
+•	Neighborhood discovery for instance-based reasoning
+•	Mean-centered normalization of record values
+•	Collaborative filtering for prediction and recommendation
+•	Error estimation using Mean Absolute Error (MAE)
+•	Classification via multiple machine learning algorithms
+•	Performance evaluation and visualization
+Custom MATLAB functions required for execution:
+•	KNN – K-Nearest Neighbor classifier
+•	DT – Decision Tree classifier
+•	NB – Naïve Bayes classifier
+•	NN – Neural Network classifier
+•	Confusion – Confusion matrix computation
+These functions must be available within the MATLAB path prior to execution.
+
+Usage Instructions
+1.	Place the dataset file (Dataset.mat) in the MATLAB working directory.
+2.	Ensure that all dependent function files (KNN.m, DT.m, NB.m, NN.m, Confusion.m) are accessible.
+3.	Execute the main MATLAB script:
+clc;
+clear;
+close all;
+load Dataset;
+4.	Run the script sequentially. The program performs similarity analysis, prediction, classification, and graphical evaluation automatically.
+
+Requirements
+Software Environment
+•	MATLAB R2021b
+Operating System
+•	Windows 10 (64-bit)
+Hardware Platform
+•	Laptop ASUS N56J
+•	Intel Core i7 Processor
+•	8 GB RAM
+MATLAB Toolboxes
+The following MATLAB capabilities are utilized implicitly:
+•	Base MATLAB functions for matrix operations and visualization
+•	Statistics-related functions (mean, std, distance computations)
+•	Plotting utilities (plot, bar, figure, axes)
+No proprietary external libraries are required beyond standard MATLAB functionality.
+
+Methodology
+The computational model follows a structured analytical pipeline:
+1. Similarity Modeling
+Pairwise Euclidean distances are computed among patient records to identify nearest neighbors. This stage quantifies structural proximity between instances based on recorded attributes.
+2. Neighborhood Formation
+For each record, the closest neighboring instances are selected. These neighbors represent clinically similar patients whose data contribute to inference.
+3. Normalization
+Record values are mean-centered to remove systematic bias and enhance comparative stability during similarity assessment.
+4. Collaborative Filtering
+Predicted values are estimated using similarity-weighted aggregation. This mechanism emulates knowledge transfer from related patient cases.
+5. Error Estimation
+Prediction accuracy is quantified using Mean Absolute Error (MAE), reflecting deviation between observed and estimated values.
+6. Classification
+Supervised classifiers (KNN, Decision Tree, Naïve Bayes, Neural Networks) are employed to evaluate diagnostic consistency and predictive reliability.
+7. Visualization
+Performance metrics and error distributions are visualized to facilitate interpretability and comparative analysis.
+
+Assessment Metrics
+Model performance is evaluated using widely accepted diagnostic metrics:
+•	Accuracy – Measures overall correctness of predictions
+•	Recall (Sensitivity) – Assesses detection capability for positive instances
+•	Precision – Quantifies reliability of positive predictions
+•	F-measure – Harmonic balance of precision and recall
+These metrics provide complementary perspectives on classification behavior, particularly relevant in medical datasets where class imbalance and misclassification costs are critical considerations.
+
+Related Publication
+Nanehkaran, Y., Licai, Z., Chen, J., Zhongpan, Q., Xiaofeng, Y., Dorostkar Navaei, Y., & Einy, S.
+Diagnosis of chronic diseases based on patients’ health records in IoT healthcare using the recommender system. Wireless Communications and Mobile Computing, 2022(1), 5663001.
+DOI: 10.1155/2022/5663001
+
+Summary of the Associated Study
+The referenced study proposes a medical recommender framework for chronic disease management in IoT-enabled healthcare systems. The approach combines K-Nearest Neighbor classification for disease identification with collaborative filtering for treatment recommendation. Patient similarity derived from clinical symptoms and recorded attributes constitutes the central mechanism for inference. Experimental evaluation demonstrates that similarity-based reasoning can effectively support diagnostic decision-making and treatment suggestion, yielding improved predictive performance relative to conventional techniques. The study underscores the potential of recommender system paradigms in personalized digital healthcare environments.
+
+Materials & Methods – Computing Infrastructure
+All computational experiments were conducted under the following configuration:
+•	Hardware: Laptop ASUS N56J, Intel Core i7, 8 GB RAM
+•	Operating System: Windows 10 (64-bit)
+•	Software: MATLAB R2021b
+
+Conclusions
+The implementation illustrates the feasibility of integrating similarity-based learning and collaborative recommendation for chronic disease diagnosis and treatment support. The results reinforce the relevance of recommender system methodologies within clinical decision-support contexts, particularly for data-rich IoT healthcare ecosystems.
+
+Limitations
+Several methodological considerations should be acknowledged:
+•	Dependence on dataset structure and quality
+•	Sensitivity to similarity measures and neighborhood size
+•	Simplified handling of missing or noisy records
+•	Absence of direct clinical validation
+Future investigations may consider robust normalization strategies, adaptive similarity metrics, and validation using heterogeneous clinical datasets.
+
+License & Contributions
+This implementation is intended solely for academic research and educational purposes. Users are encouraged to cite the associated publication when employing or extending the methodology. Contributions aimed at methodological refinement or computational optimization are welcome within non-commercial research contexts.
